@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>URL短縮アプリ</title>
+</head>
+<body>
+    <h1>URLを短縮しよう！</h1>
+    <form action="/shorten" method="POST">
+        <input type="text" name="url" placeholder="https://example.com" size="50" required>
+        <button type="submit">短縮する</button>
+    </form>
+
+    <hr>
+
+    <div>
+        <strong>短縮URL:</strong>
+        <p>
+            <!-- クエリパラメータがあれば表示 -->
+            <script>
+                const params = new URLSearchParams(window.location.search);
+                const short = params.get("short");
+                if (short) {
+                    document.write(`<a href="/${short}" target="_blank">http://localhost:8080/${short}</a>`);
+                }
+            </script>
+        </p>
+    </div>
+</body>
+</html>
